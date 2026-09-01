@@ -1,0 +1,76 @@
+# ─────────────────────────────────────────────
+# Core ML & Data
+# ─────────────────────────────────────────────
+numpy==2.5.2
+pandas==3.0.5
+scikit-learn==1.9.0
+imbalanced-learn==0.14.2
+xgboost==3.4.1
+scipy==1.18.1
+joblib==1.5.3
+threadpoolctl==3.6.0
+
+# ─────────────────────────────────────────────
+# Visualisation (used in notebook EDA)
+# ─────────────────────────────────────────────
+matplotlib==3.11.1
+seaborn==0.13.2
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.63.0
+kiwisolver==1.5.1
+pillow==12.3.0
+pyparsing==3.3.2
+
+# ─────────────────────────────────────────────
+# Backend API (FastAPI + Uvicorn)
+# ─────────────────────────────────────────────
+fastapi==0.141.1
+uvicorn==0.52.4
+starlette==1.6.0
+pydantic==2.13.5
+pydantic_core==2.46.5
+annotated-types==0.8.0
+typing_extensions==4.16.0
+typing-inspection==0.4.4
+python-multipart==0.0.32
+anyio==4.14.2
+h11==0.16.0
+httptools==0.8.0
+websockets==16.1.1
+
+#frontend
+streamlit==1.62.0
+altair==6.2.2
+blinker==1.9.0
+click==8.5.0
+colorama==0.4.6
+narwhals==2.25.0
+packaging==26.3
+pyarrow==25.0.1
+pydeck==0.9.3
+requests==2.34.2
+six==1.17.0
+toml==0.10.2
+tornado==6.5.8
+watchdog==6.0.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+attrs==26.1.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+referencing==0.37.0
+rpds-py==2026.6.3
+certifi==2026.7.22
+charset-normalizer==3.5.1
+idna==3.19
+urllib3==2.7.0
+platformdirs==4.11.5
+python-dateutil==2.9.0.post0
+tzdata==2026.3
+protobuf==7.36.1
+
+
+#manage env variables
+python-dotenv==1.2.3
+

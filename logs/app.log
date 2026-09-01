@@ -1,0 +1,108 @@
+2026-08-31 18:01:19,086 | INFO | Configuration complete
+2026-08-31 18:01:19,087 | INFO | Training Script Started
+2026-08-31 18:01:19,233 | INFO | Dataset loaded with shape (7043, 21)
+2026-08-31 18:01:19,273 | INFO | ID column customerID dropped due to unimportance
+2026-08-31 18:01:19,284 | INFO | TotalCharges Column changed to numeric and space values became NaN
+2026-08-31 18:01:19,288 | INFO | Target column Churn has been mapped to numeric values 0 and 1
+2026-08-31 18:01:19,512 | INFO | Lists of different features created
+2026-08-31 18:01:19,513 | INFO | Preprocessing structure created
+2026-08-31 18:01:19,513 | INFO | Model Pipeline created
+2026-08-31 18:01:19,613 | INFO | Training script failed: Input X contains NaN.
+LogisticRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+2026-08-31 18:09:14,583 | INFO | Configuration complete
+2026-08-31 18:09:14,603 | INFO | Training Script Started
+2026-08-31 18:09:14,722 | INFO | Dataset loaded with shape (7043, 21)
+2026-08-31 18:09:14,724 | INFO | ID column customerID dropped due to unimportance
+2026-08-31 18:09:14,735 | INFO | TotalCharges Column changed to numeric and space values became NaN
+2026-08-31 18:09:14,739 | INFO | Target column Churn has been mapped to numeric values 0 and 1
+2026-08-31 18:09:14,896 | INFO | Lists of different features created
+2026-08-31 18:09:14,897 | INFO | Preprocessing structure created
+2026-08-31 18:09:14,897 | INFO | Model Pipeline created
+2026-08-31 18:09:23,400 | INFO | Model training complete
+2026-08-31 18:09:23,655 | INFO | None
+2026-08-31 18:09:23,655 | INFO | Model Training evaluation visualized
+2026-08-31 18:09:23,677 | INFO | Model saved to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib
+2026-08-31 18:09:23,678 | INFO | Training script finished
+2026-08-31 18:10:46,991 | INFO | Configuration complete
+2026-08-31 18:10:46,992 | INFO | Training Script Started
+2026-08-31 18:10:47,052 | INFO | Dataset loaded with shape (7043, 21)
+2026-08-31 18:10:47,054 | INFO | ID column customerID dropped due to unimportance
+2026-08-31 18:10:47,060 | INFO | TotalCharges Column changed to numeric and space values became NaN
+2026-08-31 18:10:47,065 | INFO | Target column Churn has been mapped to numeric values 0 and 1
+2026-08-31 18:10:47,140 | INFO | Lists of different features created
+2026-08-31 18:10:47,141 | INFO | Preprocessing structure created
+2026-08-31 18:10:47,142 | INFO | Model Pipeline created
+2026-08-31 18:10:48,854 | INFO | Model training complete
+2026-08-31 18:10:48,951 | INFO | None
+2026-08-31 18:10:48,952 | INFO | Model Training evaluation visualized
+2026-08-31 18:10:48,960 | INFO | Model saved to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib
+2026-08-31 18:10:48,960 | INFO | Training script finished
+2026-08-31 18:37:48,692 | INFO | Configuration complete
+2026-08-31 18:37:48,698 | INFO | Model Loaded
+2026-08-31 18:37:48,933 | INFO | Prediction result: Diabetes
+2026-08-31 18:37:48,934 | INFO | Prediction script finished
+2026-08-31 18:39:02,514 | INFO | Configuration complete
+2026-08-31 18:39:02,571 | INFO | Model Loaded
+2026-08-31 18:39:02,701 | INFO | Prediction result: Churn
+2026-08-31 18:39:02,717 | INFO | Prediction script finished
+2026-08-31 18:46:17,258 | INFO | Configuration complete
+2026-08-31 18:46:17,264 | INFO | Model Loaded
+2026-08-31 18:46:17,332 | INFO | Prediction result: Churn
+2026-08-31 18:46:17,332 | INFO | Prediction script finished
+2026-08-31 18:46:51,997 | INFO | Configuration complete
+2026-08-31 18:46:52,002 | INFO | Model Loaded
+2026-08-31 18:46:52,061 | INFO | Prediction result: No Churn
+2026-08-31 18:46:52,062 | INFO | Prediction script finished
+2026-08-31 18:47:31,927 | INFO | Configuration complete
+2026-08-31 18:47:31,931 | INFO | Model Loaded
+2026-08-31 18:47:32,001 | INFO | Prediction result: Churn
+2026-08-31 18:47:32,001 | INFO | Prediction script finished
+2026-08-31 18:47:58,023 | INFO | Configuration complete
+2026-08-31 18:47:58,027 | INFO | Model Loaded
+2026-08-31 18:47:58,097 | INFO | Prediction result: Churn
+2026-08-31 18:47:58,097 | INFO | Prediction script finished
+2026-09-01 06:57:59,633 | INFO | Configuration complete
+2026-09-01 06:57:59,635 | INFO | Loading Trained Model
+2026-09-01 06:58:07,181 | INFO | Model Loaded
+2026-09-01 07:04:13,481 | INFO | Configuration complete
+2026-09-01 07:04:13,481 | INFO | Loading Trained Model
+2026-09-01 07:04:22,854 | INFO | Model Loaded
+2026-09-01 07:04:49,478 | INFO | Model made a prediction
+2026-09-01 07:04:51,780 | INFO | Model made a prediction
+2026-09-01 07:18:27,354 | INFO | Configuration complete
+2026-09-01 07:18:27,354 | INFO | Loading Trained Model
+2026-09-01 07:18:35,379 | INFO | Model Loaded
+2026-09-01 07:20:35,625 | INFO | Model made a prediction
+2026-09-01 07:23:22,020 | INFO | Model made a prediction
+2026-09-01 16:11:27,803 | INFO | Configuration complete
+2026-09-01 16:11:27,804 | INFO | Loading Trained Model
+2026-09-01 16:11:31,980 | INFO | Error: No module named 'func'
+2026-09-01 16:13:42,258 | INFO | Configuration complete
+2026-09-01 16:13:42,259 | INFO | Loading Trained Model
+2026-09-01 16:13:48,347 | INFO | Error: No module named 'func'
+2026-09-01 16:15:22,341 | INFO | Configuration complete
+2026-09-01 16:15:22,342 | INFO | Loading Trained Model
+2026-09-01 16:15:24,139 | INFO | Model Loaded
+2026-09-01 16:24:44,589 | INFO | Configuration complete
+2026-09-01 16:24:44,589 | INFO | Loading Trained Model
+2026-09-01 16:24:44,681 | INFO | Model Loaded
+2026-09-01 16:24:44,714 | DEBUG | Using proactor: IocpProactor
+2026-09-01 16:25:12,346 | INFO | Configuration complete
+2026-09-01 16:25:12,346 | INFO | Loading Trained Model
+2026-09-01 16:25:12,432 | INFO | Model Loaded
+2026-09-01 16:25:12,474 | DEBUG | Using proactor: IocpProactor
+2026-09-01 16:26:40,456 | INFO | Configuration complete
+2026-09-01 16:26:40,457 | INFO | Loading Trained Model
+2026-09-01 16:26:40,643 | INFO | Model Loaded
+2026-09-01 16:26:40,707 | DEBUG | Using proactor: IocpProactor
+2026-09-01 16:29:20,392 | INFO | Configuration complete
+2026-09-01 16:29:20,699 | INFO | Loading Trained Model
+2026-09-01 16:29:20,809 | INFO | Model Loaded
+2026-09-01 16:29:20,847 | DEBUG | Using proactor: IocpProactor
+2026-09-01 16:29:48,775 | INFO | Model made a prediction
+2026-09-01 16:31:11,879 | INFO | Model made a prediction
+2026-09-01 16:35:09,999 | INFO | Configuration complete
+2026-09-01 16:35:10,312 | INFO | Loading Trained Model
+2026-09-01 16:35:10,401 | INFO | Model Loaded
+2026-09-01 16:35:10,431 | DEBUG | Using proactor: IocpProactor
+2026-09-01 16:35:27,831 | INFO | Model made a prediction

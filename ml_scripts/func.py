@@ -31,6 +31,15 @@ def encode_binary_cols(X, cols):
     return X
 
 
+def modify_total_charges(X, cols):
+    X = X.copy()
+    for col in cols:
+        if col in X.columns:
+            X[col] = pd.to_numeric(X[col], errors="coerce")#convert from str to int
+    return X
+            
+
+
 def print_evaluation(title:str, ground_truth: np.ndarray, model_predictions: np.ndarray):
     acc = accuracy_score(ground_truth, model_predictions)
     class_report = classification_report(ground_truth, model_predictions)

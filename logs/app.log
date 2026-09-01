@@ -146,3 +146,29 @@ Name: model, dtype: str
 2026-09-01 22:30:05,624 | INFO | Training script finished
 2026-09-01 22:30:05,624 | INFO | Saving model to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib
 2026-09-01 22:30:05,635 | INFO | Model saved to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib
+2026-09-01 23:08:44,398 | INFO | Configuration complete
+2026-09-01 23:08:44,402 | INFO | Training Script Started
+2026-09-01 23:08:44,677 | INFO | Dataset loaded with shape (7043, 21)
+2026-09-01 23:08:44,782 | INFO | ID column customerID dropped due to unimportance
+2026-09-01 23:08:44,786 | INFO | Target column Churn has been mapped to numeric values 0 and 1
+2026-09-01 23:08:45,048 | INFO | Lists of different features created
+2026-09-01 23:08:45,049 | INFO | Preprocessing structure created
+2026-09-01 23:08:45,049 | INFO | Model Pipeline created
+2026-09-01 23:08:45,141 | INFO | Training script failed: The 'kw_args' parameter of FunctionTransformer must be an instance of 'dict' or None. Got ['TotalCharges'] instead.
+2026-09-01 23:10:03,438 | INFO | Configuration complete
+2026-09-01 23:10:03,439 | INFO | Training Script Started
+2026-09-01 23:10:03,482 | INFO | Dataset loaded with shape (7043, 21)
+2026-09-01 23:10:03,485 | INFO | ID column customerID dropped due to unimportance
+2026-09-01 23:10:03,488 | INFO | Target column Churn has been mapped to numeric values 0 and 1
+2026-09-01 23:10:03,537 | INFO | Lists of different features created
+2026-09-01 23:10:03,537 | INFO | Preprocessing structure created
+2026-09-01 23:10:03,538 | INFO | Model Pipeline created
+2026-09-01 23:10:04,491 | INFO | Model training complete
+2026-09-01 23:10:04,679 | INFO | None
+2026-09-01 23:10:04,679 | INFO | Model evaluation on training dataset visualized
+2026-09-01 23:10:04,679 | INFO | Testing Trained Model
+2026-09-01 23:10:04,690 | INFO | None
+2026-09-01 23:10:04,690 | INFO | Model evaluation on testing dataset visualized
+2026-09-01 23:10:04,690 | INFO | Training script finished
+2026-09-01 23:10:04,691 | INFO | Saving model to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib
+2026-09-01 23:10:04,708 | INFO | Model saved to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib

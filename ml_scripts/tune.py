@@ -82,7 +82,6 @@ def tune():
         X, y, test_size=TEST_SIZE, stratify=y, random_state=RANDOM_STATE
     )
     binary_features, nominal_features, numeric_features = [], [], []
-    COL_WITH_ZEROS = ["TotalCharges"]
 
     for col in X_train.columns.tolist():
         n = X_train[col].nunique()
@@ -95,6 +94,14 @@ def tune():
 
     binary_features.remove("SeniorCitizen")
 
+    COL_WITH_ZEROS = ["TotalCharges"]
+
+
+    modify_str_int_column = FunctionTransformer(
+        prep_func.modify_total_charges,
+        kw_args={"cols": COL_WITH_ZEROS},
+        validate=False
+    )
     zero_to_nan = FunctionTransformer(
         prep_func.replace_zeros_with_nan_df,
         kw_args={"cols": COL_WITH_ZEROS},
@@ -108,8 +115,10 @@ def tune():
 
     binary_transformer = Pipeline(steps=[("encode", encode_binary)])
     nominal_transformer = Pipeline(steps=[("oneHot", OneHotEncoder())])
+
     numerical_transformer = Pipeline(
         steps=[
+            ("modify_odd_column", modify_str_int_column),
             ("zero_to_nan", zero_to_nan),
             ("impute", SimpleImputer(strategy="median")),
             ("scale", StandardScaler()),

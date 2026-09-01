@@ -69,8 +69,8 @@ def train_model():
         df = df.drop(columns=[id_column])
         logging.info(f"ID column {id_column} dropped due to unimportance")
         
-        df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
-        logging.info("TotalCharges Column changed to numeric and space values became NaN")
+        #df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
+        # logging.info("TotalCharges Column changed to numeric and space values became NaN")
 
 
         X = df.drop(columns=[TARGET_COL])
@@ -92,7 +92,6 @@ def train_model():
         nominal_features = []#OneHotEncoding
         numeric_features = []#scaling
 
-        COL_WITH_ZEROS = ["TotalCharges"]
 
         for col in X_train.columns.tolist():
             num_unique_values = X_train[col].nunique()
@@ -107,16 +106,24 @@ def train_model():
 
 
         logging.info("Lists of different features created")
+        COL_WITH_ZEROS = ["TotalCharges"]
+
 
         zero_to_nan  = FunctionTransformer(
-        prep_func.replace_zeros_with_nan_df,
-        kw_args={"cols": COL_WITH_ZEROS},
-        validate=False #Trust me bro
-    )
+            prep_func.replace_zeros_with_nan_df,
+            kw_args={"cols": COL_WITH_ZEROS},
+            validate=False #Trust me bro
+        )
 
         encode_binary = FunctionTransformer(
             prep_func.encode_binary_cols,
             kw_args={"cols": binary_features},
+            validate=False
+        )
+
+        modify_str_int_column = FunctionTransformer(
+            prep_func.modify_total_charges,
+            kw_args={"cols": COL_WITH_ZEROS},
             validate=False
         )
 
@@ -135,6 +142,7 @@ def train_model():
 
         numerical_transformer = Pipeline(
             steps = [
+            ("modify_odd_column", modify_str_int_column),
             ("zero_to_nan", zero_to_nan),
             ("impute", SimpleImputer(strategy="median")), 
             ("scale", StandardScaler())

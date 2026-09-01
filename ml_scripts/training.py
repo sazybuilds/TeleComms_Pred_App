@@ -159,9 +159,9 @@ def train_model():
                     random_state=RANDOM_STATE,
                     class_weight="balanced",
                     C=1,
-                    l1_ratio=0.8,
-                    max_iter=2000,
-                    solver='saga'
+                    l1_ratio=0,
+                    max_iter=1000,
+                    solver='liblinear'
                 ))
             ]
         )
@@ -170,16 +170,23 @@ def train_model():
         best_model_pipeline.fit(X_train, y_train)
         logging.info("Model training complete")
 
-        model_predictions = best_model_pipeline.predict(X_train)
+        model_predictions_train = best_model_pipeline.predict(X_train)
+        model_predictions_test = best_model_pipeline.predict(X_test)
 
-        logging.info(f"{prep_func.print_evaluation("MODEL TRAINING EVALUTION REPORT", y_train, model_predictions)}")
+        logging.info(f"{prep_func.print_evaluation("MODEL TRAINING EVALUTION REPORT", y_train, model_predictions_train)}")
 
-        logging.info("Model Training evaluation visualized")
+        logging.info("Model evaluation on training dataset visualized")
 
+        logging.info("Testing Trained Model")
+        logging.info(f"{prep_func.print_evaluation("MODEL TRAINING EVALUTION REPORT", y_test, model_predictions_test)}")
+        logging.info("Model evaluation on testing dataset visualized")
+
+        logging.info("Training script finished")
+
+        logging.info(f"Saving model to {MODEL_PATH}")
         dump(best_model_pipeline, MODEL_PATH)
         logging.info(f"Model saved to {MODEL_PATH}")
 
-        logging.info("Training script finished")
 
     except Exception as e:
         print(f"Training Failed: {e}")

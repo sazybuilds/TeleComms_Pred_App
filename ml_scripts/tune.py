@@ -180,9 +180,14 @@ def tune():
         )
 
     cv_results = pd.DataFrame(rows).sort_values("f1_score", ascending=False)
+    best_row = cv_results.iloc[0]
+    best_model = best_row["model"]
     print("\n===== Cross-Validation Results (sorted by F1) =====")
     print(cv_results.to_string(index=False))
     logging.info("Cross-validation complete")
+    logging.info(f"Best Model {best_model}")
+
+
 
     logging.info("Starting GridSearchCV …")
 
@@ -241,7 +246,9 @@ def tune():
 
     logging.info(f"Best F1 score : {grid.best_score_:.4f}")
     logging.info(f"Best params   : {grid.best_params_}")
+
     logging.info("Tuning script finished")
+    logging.info("Best Parameters and Model gotten")
 
 
 if __name__ == "__main__":

@@ -106,3 +106,43 @@ LogisticRegression does not accept missing values encoded as NaN natively. For s
 2026-09-01 16:35:10,401 | INFO | Model Loaded
 2026-09-01 16:35:10,431 | DEBUG | Using proactor: IocpProactor
 2026-09-01 16:35:27,831 | INFO | Model made a prediction
+2026-09-01 21:32:51,499 | INFO | Configuration complete
+2026-09-01 21:32:51,503 | INFO | Loading Trained Model
+2026-09-01 21:32:52,410 | INFO | Model Loaded
+2026-09-01 21:35:18,556 | INFO | Model made a prediction
+2026-09-01 22:17:18,001 | INFO | Tuning script started
+2026-09-01 22:17:18,276 | INFO | Dataset loaded — shape: (7043, 21)
+2026-09-01 22:17:18,773 | INFO | Preprocessing pipeline built
+2026-09-01 22:17:18,774 | INFO | Running cross-validated model comparison …
+2026-09-01 22:18:07,560 | INFO | Cross-validation complete
+2026-09-01 22:18:07,562 | INFO | Best Model 0    LogisticRegression
+3                   SVC
+2                HistGB
+5                   XGB
+6            NaiveBayes
+1          RandomForest
+4          DecisionTree
+Name: model, dtype: str
+2026-09-01 22:18:07,573 | INFO | Starting GridSearchCV …
+2026-09-01 22:20:50,036 | INFO | Best F1 score : 0.6290
+2026-09-01 22:20:50,037 | INFO | Best params   : {'model__C': 1, 'model__l1_ratio': 0, 'model__max_iter': 1000, 'model__solver': 'liblinear'}
+2026-09-01 22:20:50,038 | INFO | Tuning script finished
+2026-09-01 22:20:50,038 | INFO | Best Parameters and Model gotten
+2026-09-01 22:30:05,220 | INFO | Configuration complete
+2026-09-01 22:30:05,220 | INFO | Training Script Started
+2026-09-01 22:30:05,287 | INFO | Dataset loaded with shape (7043, 21)
+2026-09-01 22:30:05,289 | INFO | ID column customerID dropped due to unimportance
+2026-09-01 22:30:05,296 | INFO | TotalCharges Column changed to numeric and space values became NaN
+2026-09-01 22:30:05,301 | INFO | Target column Churn has been mapped to numeric values 0 and 1
+2026-09-01 22:30:05,436 | INFO | Lists of different features created
+2026-09-01 22:30:05,437 | INFO | Preprocessing structure created
+2026-09-01 22:30:05,437 | INFO | Model Pipeline created
+2026-09-01 22:30:05,536 | INFO | Model training complete
+2026-09-01 22:30:05,611 | INFO | None
+2026-09-01 22:30:05,612 | INFO | Model evaluation on training dataset visualized
+2026-09-01 22:30:05,612 | INFO | Testing Trained Model
+2026-09-01 22:30:05,623 | INFO | None
+2026-09-01 22:30:05,623 | INFO | Model evaluation on testing dataset visualized
+2026-09-01 22:30:05,624 | INFO | Training script finished
+2026-09-01 22:30:05,624 | INFO | Saving model to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib
+2026-09-01 22:30:05,635 | INFO | Model saved to C:\Users\HP\Desktop\MY PROJECTS\Telco_cust_churn\model_dir\telco_logReg_model_pipeline.joblib

@@ -2,12 +2,15 @@
 import streamlit as st
 import requests
 import os
+from pathlib import Path
 # pyrefly: ignore [missing-import]
 from dotenv import load_dotenv
+
 
 # Load environment variables
 load_dotenv()
 API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/predict")
+API_KEY = os.getenv("API_KEY", "")
 
 st.set_page_config(
     page_title="Telco Customer Churn Prediction",
@@ -91,15 +94,37 @@ def go_to_home():
 if st.session_state.page == "home":
     _, center_col, _ = st.columns([1, 2, 1])
     with center_col:
+        # ── Profile photo ────────────────────────────────────────────────────
+        photo_path = Path(__file__).parent / "profile.jpg"
+        if photo_path.exists():
+            import base64
+            img_b64 = base64.b64encode(photo_path.read_bytes()).decode()
+            st.markdown(
+                f"""
+                <div style="display:flex; justify-content:center; margin-bottom:16px;">
+                    <img src="data:image/jpeg;base64,{img_b64}"
+                         style="width:160px; height:160px; object-fit:cover;
+                                border-radius:50%;
+                                border:4px solid #1f77b4;
+                                box-shadow:0 4px 20px rgba(31,119,180,0.35);
+                                pointer-events:none;
+                                user-select:none;" />
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        # ── Heading & author info ─────────────────────────────────────────────
         st.title("📡 Telco Customer Churn Predictor")
         st.markdown("### A telecommunications machine learning application that predicts whether a customer is likely to churn.")
         st.markdown("---")
         st.markdown("""
         **Author:** Osazuwa Oaikhina  
-        **LinkedIn:** [Connect with me!](https://www.linkedin.com/in/osazuwaoaikhina-5937ab268/)
+        **LinkedIn:** [Connect with me!](https://www.linkedin.com/in/osazuwaoaikhina-5937ab268/)  
+        **GitHub:** [View my projects](https://github.com/sazybuilds)
         """)
         st.markdown("<br><br>", unsafe_allow_html=True)
         st.button("🚀 Enter Predictor", on_click=go_to_predict, use_container_width=True)
+
 
 
 elif st.session_state.page == "predict":
@@ -187,15 +212,37 @@ elif st.session_state.page == "predict":
 
             # Send the data to the FastAPI backend
             try:
-                response = requests.post(API_URL, json=input_data)
+                response = requests.post(
+                    API_URL,
+                    json=input_data,
+                    headers={"X-API-Key": API_KEY}
+                )
                 if response.status_code == 200:
-                    prediction = response.json()["prediction"]
-                else:
-                    st.error(f"Error from API: {response.status_code}")
+                    result = response.json()
+                    prediction = result["prediction"]
+                    probability = result["churn_probability"]
+                elif response.status_code == 401:
+                    st.error("Authentication error: the API key is missing or incorrect. "
+                             "Please check your API_KEY environment variable.")
                     prediction = None
+                    probability = None
+                elif response.status_code == 400:
+                    detail = response.json().get("detail", "Invalid input data.")
+                    st.error(f"Invalid input: {detail}")
+                    prediction = None
+                    probability = None
+                elif response.status_code == 429:
+                    st.warning("Too many requests. Please wait a moment before trying again.")
+                    prediction = None
+                    probability = None
+                else:
+                    st.error(f"Unexpected error from API (HTTP {response.status_code}).")
+                    prediction = None
+                    probability = None
             except requests.exceptions.ConnectionError:
                 st.error(f"Cannot connect to API. Please ensure the backend server is running on {API_URL}.")
                 prediction = None
+                probability = None
 
 
         st.divider()
@@ -203,6 +250,8 @@ elif st.session_state.page == "predict":
             _, result_col, _ = st.columns([1, 2, 1])
             with result_col:
                 if prediction == 1:
-                    st.error("### 🚨 High Risk\nThis customer is likely to **CHURN**.")
+                    st.error(f"### ■ High Risk\nThis customer is likely to **CHURN**" 
+                                f"({probability:.1%} probability).")
                 else:
-                    st.success("### ✅ Retained\nThis customer is likely to **STAY**.")
+                   st.success(f"### ■ Retained\nThis customer is likely to **STAY** "
+                                f"({(1 - probability):.1%} probability of staying")

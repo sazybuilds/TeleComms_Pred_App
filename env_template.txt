@@ -21,3 +21,7 @@ RANDOM_STATE=42
 
 API_URL="port/predict"
 
+# API Key — must be identical on both the backend (HF Spaces) and frontend (Streamlit Cloud).
+# Generate with: python -c "import secrets; print(secrets.token_urlsafe(32))"
+API_KEY="your-secret-api-key-here"
+

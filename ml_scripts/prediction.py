@@ -55,8 +55,12 @@ except Exception as e:
 def predict(input_data: dict):
     df = pd.DataFrame([input_data])
     predicted_value = loaded_model.predict(df)[0]
+    churn_probability = loaded_model.predict_proba(df)[0][1]
     logging.info("Model made a prediction")
-    return predicted_value
+    return {
+        "prediction": predicted_value,
+        "churn_probability": round(float(churn_probability), 4)
+    }
 
 
 

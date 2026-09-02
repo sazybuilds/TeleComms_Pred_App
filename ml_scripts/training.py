@@ -69,8 +69,6 @@ def train_model():
         df = df.drop(columns=[id_column])
         logging.info(f"ID column {id_column} dropped due to unimportance")
         
-        #df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
-        # logging.info("TotalCharges Column changed to numeric and space values became NaN")
 
 
         X = df.drop(columns=[TARGET_COL])

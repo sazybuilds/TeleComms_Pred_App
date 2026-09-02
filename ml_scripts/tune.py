@@ -72,9 +72,6 @@ def tune():
     df = pd.read_csv(DATASET_PATH)
     logging.info(f"Dataset loaded — shape: {df.shape}")
 
-    df = df.drop(columns=["customerID"])
-    df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
-
     X = df.drop(columns=[TARGET_COL])
     y = df[TARGET_COL].map({"No": 0, "Yes": 1})
 

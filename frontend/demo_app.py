@@ -254,4 +254,4 @@ elif st.session_state.page == "predict":
                                 f"({probability:.1%} probability).")
                 else:
                    st.success(f"### ■ Retained\nThis customer is likely to **STAY** "
-                                f"({(1 - probability):.1%} probability of staying")
+                                f"({(1 - probability):.1%} probability of staying).")

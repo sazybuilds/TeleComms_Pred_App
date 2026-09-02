@@ -14,6 +14,6 @@ COPY . /code
 # Create logs directory so FileHandler doesn't crash (bulletproof practice)
 RUN mkdir -p /code/logs
 
-# Hugging Face Spaces uses port 7860; Render uses $PORT (default 10000).
+# Render uses $PORT (default 10000).
 # Using the shell form of CMD so $PORT is expanded at runtime.
 CMD uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-10000}

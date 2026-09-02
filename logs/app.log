@@ -209,3 +209,7 @@ Name: model, dtype: str
 2026-09-02 11:31:32,246 | INFO | Model Loaded
 2026-09-02 11:33:05,671 | INFO | Model made a prediction
 2026-09-02 11:33:11,830 | INFO | Model made a prediction
+2026-09-02 11:37:32,061 | INFO | Configuration complete
+2026-09-02 11:37:32,061 | INFO | Loading Trained Model
+2026-09-02 11:37:32,181 | INFO | Model Loaded
+2026-09-02 11:38:52,085 | INFO | Model made a prediction

@@ -50,7 +50,7 @@ app = FastAPI(title="Telco Churn Prediction API")
 # API from the browser without being blocked by the same-origin policy.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # tighten to your Streamlit URL in production
+    allow_origins=["https://osaz-telco-churn.streamlit.app/"],   # tighten to your Streamlit URL in production
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
